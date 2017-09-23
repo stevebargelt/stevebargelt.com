@@ -6,7 +6,7 @@ MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 Paginate = 6
-googleAnalytics = ""
+googleAnalytics = "31323933"
 enableRobotsTXT = true
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
@@ -27,6 +27,7 @@ PygmentsStyle = "monokai"
   instagram = ""
   youtube = ""
   github = "https://github.com/stevebargelt"
+  linkedin = "https://linkedin.com/in/stevebargelt"
   # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
   background_color_class = "bg-black"
-  featured_image = "/images/gohugo-default-sample-hero-image.jpg"
+  featured_image = "/img/PikePlace.jpg"
