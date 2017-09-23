@@ -1,0 +1,9 @@
+<!-- blog-image -->
+        <a href="{{ .Get "src" }}.png">
+            <img src="{{ .Get "src" }}-small.png" 
+                class="mw-100"
+                {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} 
+            />
+        </a>
+<!-- blog-image -->
+    
