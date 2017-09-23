@@ -1,0 +1,16 @@
+[build]
+  publish = "public"
+  command = "hugo"
+
+# Production context: All deploys to the main
+# repository branch will inherit these settings.
+[context.production]
+  [context.production.environment]
+    HUGO_VERSION = 0.27.1
+    HUGO_ENV = "production"
+
+[context.branch-deploy]
+  command = "hugo --buildDrafts --buildFuture"
+  [context.production.environment]
+    HUGO_VERSION = 0.27.1
+    HUGO_ENV = "preview"

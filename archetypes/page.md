@@ -8,4 +8,5 @@ slug         = ""
 title        = ""
 type         = "page"
 weight       = 0
+featured_image = ""
 +++
