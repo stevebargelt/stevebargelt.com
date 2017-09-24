@@ -11,6 +11,6 @@
 
 [context.branch-deploy]
   command = "hugo --buildDrafts --buildFuture"
-  [context.production.environment]
+  [context.branch-deploy.environment]
     HUGO_VERSION = "0.27.1"
     HUGO_ENV = "preview"
