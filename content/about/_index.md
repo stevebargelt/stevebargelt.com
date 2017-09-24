@@ -2,8 +2,6 @@
 title: "About"
 description: "A little bit about me"
 featured_image: '/img/PikePlace.jpg'
-menu:
-  main: {}
 ---
 
 I am an Agile Software Leader with over 20 years experience, 15 leading teams.
