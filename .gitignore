@@ -1,2 +1,10 @@
+#macOS stuffs
 .DS_Store
+.AppleDouble
+.LSOverride
+
 public
+
+.vscode/
+static/pre-assets/
+static/assets/small/
