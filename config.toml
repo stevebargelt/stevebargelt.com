@@ -8,8 +8,8 @@ SectionPagesMenu = "main"
 Paginate = 9
 googleAnalytics = "31323933"
 enableRobotsTXT = true
-PygmentsCodeFences = true
-PygmentsStyle = "monokai"
+pygmentsCodeFences = true
+
 
 [permalinks]
     post = "/:slug/"
