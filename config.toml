@@ -6,10 +6,16 @@ MetaDataFormat = "yaml"
 DefaultContentLanguage = "en"
 SectionPagesMenu = "main"
 Paginate = 9
-googleAnalytics = "31323933"
+googleAnalytics = "UA-31323933-1"
 enableRobotsTXT = true
+
+# Highlighting config (Pygments)
 pygmentsCodeFences = true
 
+pygmentsOptions = ""
+# Use the Chroma stylesheet
+# pygmentsUseClasses = true
+pygmentsUseClassic = true
 
 [permalinks]
     post = "/:slug/"
