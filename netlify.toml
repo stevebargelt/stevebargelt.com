@@ -1,15 +1,19 @@
 [build]
-  HUGO_PYGMENTSUSECLASSIC = "true"
   publish = "public"
   command = "hugo"
 
-[context.production.environment]
-  HUGO_VERSION = "0.29"
-  HUGO_ENV = "production"
+[context.production]
+  [context.production.environment]
+    HUGO_VERSION = "0.29"
+    HUGO_ENV = "production"
 
 [context.branch-deploy]
   command = "hugo --buildDrafts --buildFuture"
   [context.branch-deploy.environment]
     HUGO_VERSION = "0.29"
     HUGO_ENV = "preview"
+
+[context.deploy-preview]
+  command = "hugo --buildDrafts --buildFuture"
+
     
