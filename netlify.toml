@@ -1,4 +1,5 @@
 [build]
+  HUGO_PYGMENTSUSECLASSIC = "true"
   publish = "public"
   command = "hugo"
 
@@ -12,4 +13,4 @@
   [context.branch-deploy.environment]
     HUGO_VERSION = "0.29"
     HUGO_ENV = "preview"
-    HUGO_PYGMENTSUSECLASSIC = "true"
+    

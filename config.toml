@@ -10,12 +10,9 @@ googleAnalytics = "UA-31323933-1"
 enableRobotsTXT = true
 
 # Highlighting config (Pygments)
-pygmentsCodeFences = true
+pygmentsCodeFences=true
 
-pygmentsOptions = ""
-# Use the Chroma stylesheet
-# pygmentsUseClasses = true
-pygmentsUseClassic = true
+pygmentsUseClassic=true
 
 [permalinks]
     post = "/:slug/"
