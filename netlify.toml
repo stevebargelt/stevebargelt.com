@@ -6,11 +6,13 @@
 # repository branch will inherit these settings.
 [context.production]
   [context.production.environment]
-    HUGO_VERSION = "0.28"
+    HUGO_VERSION = "0.29"
     HUGO_ENV = "production"
+    HUGO_PYGMENTSUSECLASSIC = "true"
 
 [context.branch-deploy]
   command = "hugo --buildDrafts --buildFuture"
   [context.branch-deploy.environment]
-    HUGO_VERSION = "0.28"
+    HUGO_VERSION = "0.29"
     HUGO_ENV = "preview"
+    HUGO_PYGMENTSUSECLASSIC = "true"
