@@ -2,13 +2,10 @@
   publish = "public"
   command = "hugo"
 
-# Production context: All deploys to the main
-# repository branch will inherit these settings.
-[context.production]
-  [context.production.environment]
-    HUGO_VERSION = "0.29"
-    HUGO_ENV = "production"
-    HUGO_PYGMENTSUSECLASSIC = "true"
+[context.production.environment]
+  HUGO_VERSION = "0.29"
+  HUGO_ENV = "production"
+  HUGO_PYGMENTSUSECLASSIC = "true"
 
 [context.branch-deploy]
   command = "hugo --buildDrafts --buildFuture"
