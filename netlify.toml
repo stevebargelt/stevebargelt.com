@@ -1,5 +1,4 @@
 [build]
-  HUGO_PYGMENTSUSECLASSIC = "true"
   publish = "public"
   command = "hugo"
 
