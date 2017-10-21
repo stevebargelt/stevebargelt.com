@@ -1,7 +1,7 @@
 +++
 aliases      = []
 categories   = []
-date         = "2017-10-11T00:00:00Z"
+date         = "2017-10-25T00:00:00Z"
 description  = ""
 featured_image = "/assets/rpi-docker-compose-header.png"
 draft        = true
@@ -11,7 +11,7 @@ title        = "Creating a Build Radiator with an RPi"
 type         = "post"
 weight       = 0
 +++
-See [The first post in this series]({{< ref "2017-10-09-rpi-01-docker.md" >}}) to get your Raspberry Pi setup with Docker and Docker Compose as we will be building on that foundation to get our build radiator set up.
+See [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}) to get your Raspberry Pi setup with Docker and Docker Compose as we will be building on that foundation to get our build radiator set up.
 
 ## Why a build radiator?
 
