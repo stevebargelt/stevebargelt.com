@@ -26,7 +26,8 @@ Since our ultimate goal is to allow our developers to create their own Docker im
 
 Here is a diagram of what we will have at the end of this part of the tutorial:
 
-[![build system diagram](/assets/buildSystem_03_small.png){: .img-responsive }](/assets/buildSystem_03.png){: .img-blog }
+{{< blog-img src="/assets/assets/buildSystem_03" alt="build system diagram" >}}
+
 
 The video tutorial for Part 3:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ivIoShwx6dE" frameborder="0" allowfullscreen></iframe>
@@ -93,7 +94,7 @@ Select our Resource group...
 1. Click Add
 1. Search for "Storage"
 1. Click Storage Account
-    [![](/assets/abs-03-azure-storage-account-small.png){: .img-responsive }](/assets/abs-03-azure-storage-account.png){: .img-blog }
+    {{< blog-img src="/assets/abs-03-azure-storage-account" alt="build system diagram" >}}
 
 1. Click Create
 

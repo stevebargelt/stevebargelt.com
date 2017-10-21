@@ -1,19 +1,44 @@
 +++
 aliases      = []
 categories   = []
-date         = "2017-09-23T00:00:00Z"
+date         = "2017-10-25T00:00:00Z"
 description  = ""
-featured_image = ""
+featured_image = "/assets/rpi-docker-compose-header.png"
 draft        = true
 slug         = ""
 tags         = []
-title        = "Creating a build radiator from an RPi"
+title        = "Creating a Build Radiator with an RPi"
 type         = "post"
 weight       = 0
 +++
-See blogx rpi 10 Base Setup post to get your Raspberry Pi setup with Docker and Docker Compose!
+See [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}) to get your Raspberry Pi setup with Docker and Docker Compose as we will be building on that foundation to get our build radiator set up.
 
-### Custom code
+## Why a build radiator?
+
+## Custom code
+
+```docker
+FROM resin/raspberrypi3-python:3.6
+
+VOLUME /conf
+
+# Copy appdaemon into image
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . .
+
+# Install
+RUN pip3 install .
+
+# Start script
+RUN chmod +x /usr/src/app/dockerStart.sh
+CMD [ "./dockerStart.sh" ]
+```
+https://hub.docker.com/r/resin/raspberrypi3-python/
+
+Pi Zero and Pi 1
+https://hub.docker.com/r/resin/raspberry-pi-python/
+
 
 ```shell
 mkdir jenkins-py
@@ -23,12 +48,12 @@ cp rpi-jenkins-tower-light/default-config.py config.py
 nano config.py
 ```
 
-```
+```shell
 # Default configuration file for Jenkins
 # Copy this file and name it config.py
 jenkinsurl = "https://abs.harebrained-apps.com"
-username = "stevebargelt"
-password = "steel2000"
+username = "jenkinsuser"
+password = "correcthorsebatterystaple"
 jobs = ['shoppingcart-aspdotnetcore']
 gpios = {
     'red': 18,
@@ -75,19 +100,7 @@ docker run -d --restart=always --name jenkins-py -v $(pwd)/config.py:/src/config
 
 ```
 
-docker-compose.yml 
-
-
-
-If you want to disable WiFi... in /boot/config add the line:
-```
-dtoverlay=pi3-disable-wifi
-```
-and for bluetooth:
-```
-dtoverlay=pi3-disable-bt
-```
-
+docker-compose.yml
 
 docker-compose.yml is:
 
@@ -107,7 +120,7 @@ services:
 
 # Wrting the code in a 'real' language
 
-On your local workstation (Mac in my case) 
+On your local workstation (Mac in my case)
 
 ```
 go get -d -u gobot.io/x/gobot/...
