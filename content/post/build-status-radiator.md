@@ -65,7 +65,7 @@ RUN pip install -r requirements.txt
 CMD ["python", "-u", "./jenkinslight.py"]
 ```
 
-Should note here that the -u unbuffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - well I guess it was buffereing. 
+Should note here that the -u un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - well I guess it was buffereing.
 
 Pi 2 and 3 (ARM x)
 https://hub.docker.com/r/resin/raspberrypi3-python/
@@ -113,3 +113,12 @@ services:
     devices:
       - "/dev/mem:/dev/mem"
 ```
+
+
+### Other Links
+
+https://github.com/DiUS/build-lights
+
+https://blog.hypriot.com/post/docker-sensor-fu-on-a-raspberry-pi/
+
+https://blog.hypriot.com/post/lets-get-physical/

@@ -16,6 +16,13 @@ weight       = 0
 
 On your local workstation (Mac in my case)
 
+https://thenewstack.io/make-a-restful-json-api-go/
+
+https://rsmitty.github.io/Slack-Bot/
+
+https://github.com/BeepBoopHQ/go-slackbot/blob/master/examples/wit/wit.go
+
+
 ```
 go get -d -u gobot.io/x/gobot/...
 ```

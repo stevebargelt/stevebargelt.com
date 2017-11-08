@@ -10,8 +10,12 @@ I believe in lean and agile thinking. eXtreme Programming, solid engineering pra
 
 My job as an Agile Leader is to create environments for my teams to thrive.
 
-Agile. Scrum. Kanban. Lean. Flow.
+**Current Tech Passions** Go, Kubernetes, Docker, IoT, Raspberry Pi, Azure, Google Cloud, AWS, Arduino, Home Automation, Mobile, CI/CD
 
-Current tech passions: Go, Kubernetes, Docker, Home Automation, Raspberry Pis, Mini Arduinos.
+**Current Leadership Passions** Recruiting, Onboarding, Diversity and Inclusion, Mentoring, Coaching, Servant Leader
 
-I am passionate about being a mentor, coach, and servant leader.
+**On My Bookshelf** Start with Why, Sinek | Turn the Ship Around, Marquet | Hit Refresh, Nadella | The DevOps Handbook, Kim, Humble, Debois, Willis
+
+**Creative** All of the photos on this website are my own. Someday I may add a photography section to my website. 
+
+[My Blog](/post)
