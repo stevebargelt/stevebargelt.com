@@ -1,6 +1,8 @@
 ---
 title: "Steve Bargelt"
 featured_image: '/img/sunstreakclouds.jpg'
-description: "Agile Leader"
+description: "Agile Software Leader | Lean and Agile Evangelist"
 ---
-Agile Software Leader | Lean and Agile Practitioner | Current Tech Passions: Go, Kubernetes, Docker, CI/CD
+
+I remove roadblocks. I create and foster environments that promote productivity and innovation. [More about me](/about)
+
