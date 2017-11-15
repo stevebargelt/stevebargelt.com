@@ -3,11 +3,11 @@ aliases      = []
 categories   = []
 date         = "2017-11-16T00:00:00Z"
 description  = ""
-featured_image = "/assets/rpi-docker-compose-header.png"
+featured_image = "/assets/rpi-docker-compose-jenkins.png"
 draft        = false
 slug         = ""
 tags         = []
-title        = "Creating a Build Radiator with an RPi"
+title        = "Creating a Build Radiator with a Raspberry Pi"
 type         = "post"
 weight       = 0
 +++
@@ -28,7 +28,7 @@ Note:
 
 ## Hardware setup V1
 
-Eventually we want a setup just like Bram Driesen shows in his excellent article but for starters I'm going to use a simple setup to ensure that the code and logic is working. This is my minimum viable product or MVP. In a future post I'll walk through upgrading to the [Tower Light](https://www.adafruit.com/product/2993). Beyond that I'm thinking that I eventually want to use a Neopixels LED Strip, but I have not decided on the final product yet.
+Eventually we want a setup just like Bram Driesen shows in the excellent ReadMe / article accompanying the code, but for starters I'm going to use a simple setup to ensure that the code, config, and logic are all working. This is my minimum viable product or MVP. In a future post I'll walk through upgrading to the [Tower Light](https://www.adafruit.com/product/2993). Beyond that I'm thinking that I eventually want to use a Neopixels LED Strip, but I have not decided on the final product yet.
 
 Here is a basic diagram of the V1 (MVP) setup:
 {{< blog-img src="/assets/rpi-build-radiator-001-fritzing" alt="Fritzing Diagram of the V1 hardware" >}}
@@ -103,7 +103,7 @@ CMD ["python", "-u", "./jenkinslight.py"]
 
 Note:
 
-> In the CMD -u un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - apparently it was just buffering.
+> In the CMD "`-u`" un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - apparently it was just buffering.
 
 <!-- If you are using a Raspberry Pi 2 or 3 then the above Dockerfile will work just fine. If you are using a Raspberry Pi 1 or Raspberry Pi Zero or Zero W then you will need to use `FROM resin/raspberry-pi-python:3.6` - See the following for more information: [Pi Zero and Pi 1](https://hub.docker.com/r/resin/raspberry-pi-python/). -->
 
@@ -121,7 +121,7 @@ docker run -d --name jenkins-py -v $(pwd)/config.py:/usr/src/jenkins-py/config.p
 
 If all is well with our setup **and** our Jenkins jobs, the green LED should illuminate.
 
-{{< blog-img src="/assets/rpi-build-radiator-001-green-light" alt="Green light is on - V1 hardware" >}}
+{{< blog-img src="/assets/rpi-build-radiator-001-green-light" alt="Green light is on - MVP hardware" >}}
 
 ## Troubleshooting
 
@@ -139,19 +139,27 @@ To see the logs:
 docker logs jenkins-py
 ```
 
-## Quick Example
+The most common probems I ran into were with my config settings (incorrect project names, bad jenkins password).
+
+## You Don't Have To Turn On The Red Light
+
+Alright, not super exciting if the light is always green, right? How do we know this will work if a build fails? I am going to break a build to test the system. 
 
 If I go into my Jenkins web front-end and sabotage my test job build by adding nonsense to the pipeline code
-{{< blog-img src="/assets/rpi-build-radiator-001-jenkins-pipe" alt="" >}}
+{{< blog-img src="/assets/rpi-build-radiator-001-jenkins-pipe" alt="Adding nonsense to my pileline code in a Jenkins job" >}}
 
 the job will fail
-{{< blog-img src="/assets/rpi-build-radiator-001-jenkins-fail" alt="" >}}
+{{< blog-img src="/assets/rpi-build-radiator-001-jenkins-fail" alt="Jenkins job fails" >}}
 
 We should see a red light come on...
 
+{{< blog-img src="/assets/rpi-build-radiator-001-red-light" alt="Red light is on - MVP hardware" >}}
+
+It works! My Jenkins job failed and the red light on our MVP hardware lit up.
+
 ## Auto Starting the Container
 
-If everything looks legit then we can tell Docker to always restart this container.
+Since everything looks legit, we can tell Docker to always restart this container.
 
 ```shell
 docker stop jenkins-py
@@ -181,7 +189,7 @@ services:
 docker-compose -p buildwatcher up -d
 ```
 
-### Conclusion
+## Conclusion
 
 We now have a Minimum Viable Product of a build status radiator that you can show your boss and your co-workers in order to get them on-board to move to the next step... in the next installment we will add a real Tower Light on the hardware side of the fence.
 
