@@ -101,7 +101,7 @@ logger:
 
 CTRL-X, Y, Enter to save the file
 
-No More Secrets. Actually we have quite a few secrets! You will need to create a secrets.yaml file
+No More Secrets. Actually, we have quite a few secrets! You will need to create a secrets.yaml file
 
 ```shell
 nano secrets.yaml
