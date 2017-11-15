@@ -139,7 +139,7 @@ To see the logs:
 docker logs jenkins-py
 ```
 
-The most common probems I ran into were with my config settings (incorrect project names, bad jenkins password).
+The most common problems I ran into were with my config settings (incorrect project names, bad jenkins password).
 
 ## You Don't Have To Turn On The Red Light
 
@@ -175,6 +175,7 @@ version: '3'
 services:
   jenkins-py:
     image: jenkins-py
+    #build: .
     privileged: true
     restart: always
     volumes:
