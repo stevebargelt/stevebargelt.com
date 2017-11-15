@@ -1,7 +1,7 @@
 +++
 aliases      = []
 categories   = []
-date         = "2017-09-23T00:00:00Z"
+date         = "2017-11-22T00:00:00Z"
 description  = ""
 featured_image = "/assets/rpi-docker-compose-header.png"
 draft        = true
@@ -35,7 +35,7 @@ Although I could find the answers to all of my questions and roadblocks along th
 
 In this post we will simply get Home Assistant up and running on our Raspberry Pi in a Docker container, start our Docker Compose file, and setup a development pipeline to keep our configuration up to date in Github with testing in Travis CI.
 
-### 
+### Setup
 
 First, we will SSH into our Raspberry Pi. If your Pi isn't setup for this see [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}). (and obviously use *your* IP address!)
 
@@ -101,13 +101,13 @@ logger:
 
 CTRL-X, Y, Enter to save the file
 
-No More Secrets. Actually we want a lot of secrets. You will need to create a secrets.yaml file
+No More Secrets. Actually we have quite a few secrets! You will need to create a secrets.yaml file
 
 ```shell
 nano secrets.yaml
 ```
 
-You will, at the very least want to add a password for HA:
+You will, at the very least, want to add a password for HA:
 
 ```yaml
 api_password: correcthorsebatterystaple
