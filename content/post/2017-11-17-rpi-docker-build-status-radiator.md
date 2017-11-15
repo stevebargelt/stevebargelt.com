@@ -1,10 +1,10 @@
 +++
 aliases      = []
 categories   = []
-date         = "2017-11-17T00:00:00Z"
+date         = "2017-11-16T00:00:00Z"
 description  = ""
 featured_image = "/assets/rpi-docker-compose-header.png"
-draft        = true
+draft        = false
 slug         = ""
 tags         = []
 title        = "Creating a Build Radiator with an RPi"
@@ -16,7 +16,7 @@ See [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}) t
 
 ## Why a build radiator?
 
-Pretty simple, really; visibility. The more obvious and impossible to ignore you make problems, the more attention they get, the quicker they get solved. In 2017 most of us have pretty good means of filtering out email, Slack, Twitter, and the like. If a red light flashes and a buzzer goes off in the physical world, it is hard to ignore. In addition when you have multiple teams contributing to one codebase it helps to remind teams to stop and swarm if any build breaks. I will caution that if your team(s) ignore the red light then you have deeper issues that you need to address.
+Pretty simple, really; visibility. The more obvious you make your problems, the harder you make them to ignore - the more attention they get and the quicker they get solved. In 2017 most of us have pretty good means of filtering out email, Slack, Twitter, and the like. If a red light flashes and a buzzer goes off in the physical world, it is hard to ignore. In addition when you have multiple teams contributing to one codebase it helps to remind teams to stop and swarm if any build breaks. I will caution that if your team(s) ignore the red light then you have deeper issues that you need to address.
 
 ## Pre-baked Solution
 
@@ -97,9 +97,9 @@ RUN pip install -r requirements.txt
 CMD ["python", "-u", "./jenkinslight.py"]
 ```
 
-I will note here that the -u un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - I guess it was buffering.
+I will note here that the -u un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - apparently it was buffering.
 
-If you are using a Raspberry Pi 2 or 3 then the above Dockerfile will work just fine. If you are using a Raspberry Pi 1 or Raspberry Pi Zero or Zero W then you will need to use `FROM resin/raspberry-pi-python:3.6` - See the following for more information: [Pi Zero and Pi 1 (ARM x)](https://hub.docker.com/r/resin/raspberry-pi-python/).
+If you are using a Raspberry Pi 2 or 3 then the above Dockerfile will work just fine. If you are using a Raspberry Pi 1 or Raspberry Pi Zero or Zero W then you will need to use `FROM resin/raspberry-pi-python:3.6` - See the following for more information: [Pi Zero and Pi 1](https://hub.docker.com/r/resin/raspberry-pi-python/).
 
 Next up, build the Docker image:
 
@@ -177,7 +177,8 @@ docker-compose -p buildwatcher up -d
 
 We now have a Minimum Viable Product of a build status radiator that you can show your boss and your co-workers in order to get them on-board to move to the next step... in the next installment we will add a real Tower Light on the hardware side of the fence.
 
-### Other Links
+
+<!-- ### Other Links
 
 https://github.com/DiUS/build-lights
 
@@ -191,4 +192,4 @@ Java
 https://github.com/Capoot/build-status-traffic-light
 
 Siren of Shame
-https://github.com/AutomatedArchitecture/SirenOfShame
+https://github.com/AutomatedArchitecture/SirenOfShame -->
