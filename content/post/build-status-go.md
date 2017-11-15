@@ -7,7 +7,7 @@ featured_image = "/assets/rpi-docker-compose-header.png"
 draft        = true
 slug         = ""
 tags         = []
-title        = "Creating a Build Radiator with an RPi"
+title        = "Creating a Build Radiator with an RPi in Go"
 type         = "post"
 weight       = 0
 +++
