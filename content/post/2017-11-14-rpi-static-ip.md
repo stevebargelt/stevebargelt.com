@@ -18,7 +18,7 @@ Shortly after publishing [the first post in this series]({{< ref "2017-10-20-rpi
 
 ### Static IP for your Raspberry Pi
 
-SSH into your Pi (using **your*** IP address, of course):
+SSH into your Pi (using **your** IP address, of course):
 
 ```bash
 ssh pi@192.168.1.5
