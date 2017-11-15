@@ -194,7 +194,7 @@ nano .gitignore
 
 The contents of .gitignore will be
 
-```gitignore
+```text
 *.pid
 *.xml
 *.csr
