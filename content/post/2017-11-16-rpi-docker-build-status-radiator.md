@@ -16,22 +16,26 @@ See [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}) t
 
 ## Why a build radiator?
 
-Pretty simple, really; visibility. The more obvious you make your problems, the harder you make them to ignore - the more attention they get and the quicker they get solved. In 2017 most of us have pretty good means of filtering out email, Slack, Twitter, and the like. If a red light flashes and a buzzer goes off in the physical world, it is hard to ignore. In addition when you have multiple teams contributing to one codebase it helps to remind teams to stop and swarm if any build breaks. I will caution that if your team(s) ignore the red light then you have deeper issues that you need to address.
+Pretty simple, really; visibility. The more obvious you make your problems, the harder you make them to ignore. The more attention they get, the quicker they get solved. Most of us have pretty good means of filtering out email, Slack, Twitter, and the like. If a red light flashes and a buzzer goes off in the physical world, it is hard to ignore. In addition when you have multiple teams contributing to one codebase it helps to remind teams to stop and swarm if any build breaks. If your team(s) ignore the red light then you have deeper issues that you need to address.
+
+Note:
+
+>I assume you’re on a computer similar to mine (a MacBook Pro running MacOS). It's certainly not a requirement. You could be using Linux or Windows, though some of the client-side tooling changes (PuTTY for Windows SSH, as an example). I'm confident that if you are interested in the fairly advanced concepts I'm presenting here, you will figure it out and translate to your platform of choice.
 
 ## Pre-baked Solution
 
- To get up and running quickly I did a search for solutions out there and I ran across this Link to [Python solution on Github](https://github.com/BramDriesen/rpi-jenkins-tower-light.git). One advantage is that I knew I could get this up and running very quickly. The disadvantage is that it only works with Jenkins and I currently have projects using Travis CI, Jenkins, Drone.io, and Netlify. I'm a huge fan of getting something working, anything. Then you can iterate and refine the product, adding features. I also looked at the code and setup and decided it would be easy to run everything in a Docker container.
+ To get up and running quickly I did a search for solutions out there and I ran across this Link to [Python solution on Github](https://github.com/BramDriesen/rpi-jenkins-tower-light.git). One advantage is that I knew I could get this up and running very quickly. The disadvantage is that it only works with Jenkins and I currently have projects using Travis CI, Jenkins, Drone.io, and Netlify. I'm a huge fan of getting something working, anything. Then iterate and refine the product, adding features. I also looked at the code and setup and decided it would be easy to run everything in a Docker container.
 
 ## Hardware setup V1
 
-Eventually we want a setup just like Bram Driesen shows in his excellent article but for starters I'm going to use a simple setup to ensure that the code and logic is working. This is my minimum viable product or MVP. In a future post I'll walk through upgrading to the [Tower Light](https://www.adafruit.com/product/2993) and eventually to Neopixels (have not decided on the final product yet.)
+Eventually we want a setup just like Bram Driesen shows in his excellent article but for starters I'm going to use a simple setup to ensure that the code and logic is working. This is my minimum viable product or MVP. In a future post I'll walk through upgrading to the [Tower Light](https://www.adafruit.com/product/2993). Beyond that I'm thinking that I eventually want to use a Neopixels LED Strip, but I have not decided on the final product yet.
 
 Here is a basic diagram of the V1 (MVP) setup:
 {{< blog-img src="/assets/rpi-build-radiator-001-fritzing" alt="Fritzing Diagram of the V1 hardware" >}}
 
 ## Clone the solution
 
-I did have to make a couple modifications to the source code so I forked the original repository to [https://github.com/stevebargelt/rpi-jenkins-tower-light](https://github.com/stevebargelt/rpi-jenkins-tower-light).
+I did have to make a couple modifications to the source code to work with Python 3.x, so I forked the original repository to [https://github.com/stevebargelt/rpi-jenkins-tower-light](https://github.com/stevebargelt/rpi-jenkins-tower-light).
 
 First, we will SSH into our Raspberry Pi. If your Pi isn't setup for this see [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}). (and obviously use *your* IP address!)
 
@@ -60,12 +64,12 @@ Edit the config to model your Jenkins settings and your LED GPIO pins. In Jenkin
 jenkinsurl = "https://abs.harebrained-apps.com"
 username = "buildlightuser"
 password = "correcthorsebatterystaple"
-jobs = ['shoppingcart-aspdotnetcore', 'testJob']
+jobs = ['project1', 'project2']
 gpios = {
     'red': 18,
-    'buzzer': 23,
     'yellow': 24,
     'green': 27,
+    'buzzer': 23,
 }
 ```
 
@@ -97,9 +101,11 @@ RUN pip install -r requirements.txt
 CMD ["python", "-u", "./jenkinslight.py"]
 ```
 
-I will note here that the -u un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - apparently it was buffering.
+Note:
 
-If you are using a Raspberry Pi 2 or 3 then the above Dockerfile will work just fine. If you are using a Raspberry Pi 1 or Raspberry Pi Zero or Zero W then you will need to use `FROM resin/raspberry-pi-python:3.6` - See the following for more information: [Pi Zero and Pi 1](https://hub.docker.com/r/resin/raspberry-pi-python/).
+> In the CMD -u un-buffers the Python output. For the longest time I thought there was a problem with Python writing to the stdout (via print, etc.) because I never saw anything in `docker logs jenkins-py` - apparently it was just buffering.
+
+<!-- If you are using a Raspberry Pi 2 or 3 then the above Dockerfile will work just fine. If you are using a Raspberry Pi 1 or Raspberry Pi Zero or Zero W then you will need to use `FROM resin/raspberry-pi-python:3.6` - See the following for more information: [Pi Zero and Pi 1](https://hub.docker.com/r/resin/raspberry-pi-python/). -->
 
 Next up, build the Docker image:
 
@@ -114,6 +120,8 @@ docker run -d --name jenkins-py -v $(pwd)/config.py:/usr/src/jenkins-py/config.p
 ```
 
 If all is well with our setup **and** our Jenkins jobs, the green LED should illuminate.
+
+{{< blog-img src="/assets/rpi-build-radiator-001-green-light" alt="Green light is on - V1 hardware" >}}
 
 ## Troubleshooting
 
