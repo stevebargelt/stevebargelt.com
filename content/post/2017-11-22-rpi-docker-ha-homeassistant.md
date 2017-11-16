@@ -1,13 +1,13 @@
 +++
 aliases      = []
 categories   = []
-date         = "2017-09-23T00:00:00Z"
+date         = "2017-11-22T00:00:00Z"
 description  = ""
-featured_image = "/assets/rpi-docker-compose-header.png"
+featured_image = "/assets/rpi-docker-compose-homeassistant.png"
 draft        = true
 slug         = ""
 tags         = []
-title        = "Running HomeAssistant on a RPi in Docker"
+title        = "Running Home Assistant on a Raspberry Pi in Docker"
 type         = "post"
 weight       = 0
 +++
@@ -16,7 +16,7 @@ See [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}) t
 
 ### Home Assistant
 
-If you are interested in home automation and you are not familiar with [Home Assistant](https://home-assistant.io) you should be. I haven't been so excited about home automation since I first dabbled many years ago with X-10 switches! HA is an open source project authored in Python. The community is huge and I've yet to run into a problem that I could not solve by searching the forums or the web. So, why am I writing this blog series? I think my setup is fairly typical of a power user of HA. MQTT (*2 - internal and external), Dasher, Appdaemon, Influx DB, Grafana, SSL, custom domain, and HA (of course). I'm also running everything in Docker containers on my Raspberry Pi.
+If you are interested in home automation and you are not familiar with [Home Assistant](https://home-assistant.io) you should be. I haven't been so excited about home automation since I first dabbled many years ago with X-10 switches! Home Assistant is an open source project authored in Python. The community is huge and I've yet to run into a problem that I could not solve by searching the forums or the web. So, why am I writing this blog series? I think my setup is fairly typical of a power user of HA. MQTT (*2 - internal and external), Dasher, Appdaemon, Influx DB, Grafana, SSL, custom domain, and HA (of course). I'm also running everything in Docker containers on my Raspberry Pi.
 
 ```shell
 docker ps --format "table {{.Image}}\t{{.Names}}"
@@ -31,11 +31,12 @@ mosquitto-rpi                                ha_mqtt-ext_1
 hypriot/rpi-influxdb                         ha_influxdb_1
 ```
 
-Although I could find the answers to all of my questions and roadblocks along the way I wanted to put together a comprehensive guide that may save some pain and head-scratching for others.
+Although I could find the answers to all of my questions and roadblocks along the way I wanted to put together a comprehensive guide (a series of posts) that may save some pain and head-scratching for others.
 
-In this post we will simply get Home Assistant up and running on our Raspberry Pi in a Docker container, start our Docker Compose file, and setup a development pipeline to keep our configuration up to date in Github with testing in Travis CI.
+In this post we will simply get Home Assistant up and running on our Raspberry Pi in a Docker container, start our Docker Compose file.
+<!-- and setup a development pipeline to keep our configuration up to date in Github with testing in Travis CI. -->
 
-### 
+### Setup
 
 First, we will SSH into our Raspberry Pi. If your Pi isn't setup for this see [The first post in this series]({{< ref "2017-10-20-rpi-01-docker.md" >}}). (and obviously use *your* IP address!)
 
@@ -101,13 +102,13 @@ logger:
 
 CTRL-X, Y, Enter to save the file
 
-No More Secrets. Actually we want a lot of secrets. You will need to create a secrets.yaml file
+No More Secrets. Actually, we have quite a few secrets! You will need to create a secrets.yaml file
 
 ```shell
 nano secrets.yaml
 ```
 
-You will, at the very least want to add a password for HA:
+You will, at the very least, want to add a password for HA:
 
 ```yaml
 api_password: correcthorsebatterystaple
