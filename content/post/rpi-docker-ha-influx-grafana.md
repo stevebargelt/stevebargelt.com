@@ -1,16 +1,14 @@
-+++
-aliases      = []
-categories   = []
-date         = "2017-09-23T00:00:00Z"
-description  = ""
-featured_image = "/assets/rpi-docker-compose-header.png"
-draft        = true
-slug         = ""
-tags         = []
-title        = "HomeAssistant with InfluxDB and Grafana"
-type         = "post"
-weight       = 0
-+++
+---
+categories: []
+date: '2017-09-23T00:00:00Z'
+description: Description
+featured_image: /assets/rpi-docker-compose-header.png
+draft: true
+tags: []
+title: HomeAssistant with InfluxDB and Grafana
+type: post
+weight: 0
+---
 # Homeassistant Setup : Raspberry Pi and Docker With Grafana and InfluxDB
 
 ```shell
