@@ -1,16 +1,14 @@
-+++
-aliases      = []
-categories   = []
-date         = "2017-11-20T00:00:00Z"
-description  = ""
-featured_image = "/assets/rpi-docker-compose-header.png"
-draft        = true
-slug         = ""
-tags         = []
-title        = "Adding Travis CI to your Home Assistant Workflow"
-type         = "post"
-weight       = 0
-+++
+---
+categories: []
+date: '2017-11-20T00:00:00Z'
+description: Description
+featured_image: /assets/rpi-docker-compose-header.png
+draft: true
+tags: []
+title: Adding Travis CI to your Home Assistant Workflow
+type: post
+weight: 0
+---
 
 ## Travis CI
 
