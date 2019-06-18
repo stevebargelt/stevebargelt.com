@@ -1,6 +1,6 @@
 ---
 categories: []
-date: '2017-10-25T00:00:00Z'
+date: 2017-10-25T00:00:00.000Z
 description: Description
 featured_image: /assets/rpi-docker-compose-header.png
 draft: true
