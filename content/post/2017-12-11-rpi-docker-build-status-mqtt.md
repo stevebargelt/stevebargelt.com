@@ -1,16 +1,14 @@
-+++
-aliases      = []
-categories   = []
-date         = "2017-12-11T00:00:00Z"
-description  = ""
-featured_image = "/assets/rpi-docker-compose-homeassistant.png"
-draft        = true
-slug         = ""
-tags         = []
-title        = "MQTT Build Status Radiator System"
-type         = "post"
-weight       = 0
-+++
+---
+categories: []
+date: '2017-12-11T00:00:00Z'
+description: This is a description
+featured_image: /assets/rpi-docker-compose-homeassistant.png
+draft: true
+tags: []
+title: MQTT Build Status Radiator System
+type: post
+weight: 0
+---
 
 ## Introduction
 
