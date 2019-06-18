@@ -1,16 +1,14 @@
-+++
-aliases      = []
-categories   = []
-date         = "2017-11-21T00:00:00Z"
-description  = ""
-featured_image = "/assets/rpi-docker-compose-header.png"
-draft        = true
-slug         = ""
-tags         = []
-title        = "Adding ZWave to your Home Assistant"
-type         = "post"
-weight       = 0
-+++
+---
+categories: []
+date: '2017-11-21T00:00:00Z'
+description: Description
+featured_image: /assets/rpi-docker-compose-header.png
+draft: true
+tags: []
+title: Adding ZWave to your Home Assistant
+type: post
+weight: 0
+---
 
 ## Home Assistant in Docker and ZWave 
 
