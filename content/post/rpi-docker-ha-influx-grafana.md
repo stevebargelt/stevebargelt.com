@@ -59,6 +59,14 @@ GRANT WRITE ON homeassistant TO "homeassistant"
 exit
 ```
 
+
+
+
+
+[Blog Post To learn from](https://community.home-assistant.io/t/complete-guide-on-setting-up-grafana-influxdb-with-home-assistant-using-official-docker-images/42860)
+
+
+
 <!-- Create alias
 alias vault='docker exec -it vault-dev vault "$@"' -->
 
