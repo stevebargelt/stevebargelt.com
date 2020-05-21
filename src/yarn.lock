@@ -4092,9 +4092,9 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tachyons@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/tachyons/-/tachyons-4.7.0.tgz#228eed0badca01cf793ef7cc6103a60c8f8b0f3e"
+tachyons@^4.12.0:
+  version "4.12.0"
+  resolved "https://registry.yarnpkg.com/tachyons/-/tachyons-4.12.0.tgz#6fdfa8360927a46a1efd996a4dcc94f04bd31df0"
 
 tapable@^0.2.5, tapable@~0.2.5:
   version "0.2.6"
