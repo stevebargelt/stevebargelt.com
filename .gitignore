@@ -7,3 +7,5 @@ public
 
 .vscode/
 pre-assets/
+
+node_modules/
