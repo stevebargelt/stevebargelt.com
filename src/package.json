@@ -20,7 +20,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^2.0.0",
     "jquery": "^3.5.1",
-    "postcss": "^8.0.8",
+    "postcss": "^8.0.9",
     "postcss-cssnext": "^2.10.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
