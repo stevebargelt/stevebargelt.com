@@ -19,7 +19,7 @@
     "cssnano": "^4.1.10",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^6.2.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "postcss": "^8.2.6",
     "postcss-cssnext": "^2.10.0",
     "postcss-import": "^14.0.0",
